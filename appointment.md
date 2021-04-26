@@ -13,8 +13,17 @@
   **Content:**  
 ```
 {
-  appointments: [
-           {<appointment_object>},
+  "success": 1,
+  "appointments": [
+           {
+             "doctor_id" : 47,
+             "doctor_first_name" : "Simran",
+             "doctor_last_name" : "Kahlon",
+             "appointment_date" : "2021-05-01",
+             "appointment_start_time" : "10:00",
+             "appointment_end_time" : "10:30",
+             "appointment_reference_no" : "HGTY65749304"
+           },
            {<appointment_object>},
            {<appointment_object>}
          ]
@@ -42,23 +51,35 @@
   Authorization: Bearer `<OAuth Token>`
 * **Success Response:**  
 * **Code:** 200  
-  **Content:**  
+  **Content: Sucessful Response**  
 ```
 {
-  appointment_slots: [
-           {<appointment_slot>},
+  "success" : 1,
+  "appointment_slots": [
+           {
+             "slot_date" : "2021-05-01",
+             "slot_start_time" : "10:00",
+             "slot_end_time" : "10:30",
+             "doctor_id" : 47,
+             "doctor_first_name" : "Simran",
+             "doctor_last_name" : "Kahlon"
+           },
            {<appointment_slot>},
            {<appointment_slot>}
          ]
+}
+```
+  **Content: Business Error**
+```
+{
+  "success" : 0,
+  "message: "Public Holiday!"
 }
 ```
 * **Error Response:** 
   * **Code:** 500  
   **Content:** `{ error : "Something went wrong." }`  
   OR
-  * **Code:** 404  
-  **Content:** `{ error : "Public Holiday" }`  
-  OR  
   * **Code:** 401  
   **Content:** `{ error : error : "You are unauthorized to make this request." }`
 
@@ -79,19 +100,24 @@
 ```
 * **Success Response:**  
 * **Code:** 200  
-  **Content:**  
+  **Content: Successful Response**  
 ```
 {
-  message : "Your appointement is booked successfully!",
-  appointment_refernce_no: "GTHYU20210519"
+  "success": 1,
+  "message" : "Your appointement is booked successfully!",
+  "appointment_refernce_no": "GTHYU20210519"
+}
+```
+  **Content: Successful Response**  
+```
+{
+  "success": 0,
+  "message" : "Appointment slot is no longer available."
 }
 ```
 * **Error Response:**  
   * **Code:** 500  
   **Content:** `{ error : "Something went wrong." }`  
-  OR
-   * **Code:** 404  
-  **Content:** `{ error : "Appointment slot is no longer available." }`  
   OR  
   * **Code:** 401  
   **Content:** `{ error : error : "You are unauthorized to make this request." }`
@@ -115,7 +141,8 @@
   **Content:**  
 ```
 {
-  success: "Your appointment is cancelled successfully"
+  "success": 1, 
+  "message": "Your appointment is cancelled successfully"
 }
 ```
 * **Error Response:**  
