@@ -152,4 +152,4 @@
   **Content:** `{ error : error : "You are unauthorized to make this request." }`
 
 A cron will run at midnight to populate the appointment_slots table, considering the doctors
-schedule and public holidays.
+schedule, leaves and public holidays.
