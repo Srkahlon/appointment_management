@@ -93,8 +93,8 @@
 * **Data Params**  
 ```
   {
-    patient_id: string,
-    appointment_slot_id: string,
+    patient_id: int,
+    appointment_slot_id: int,
     notes: string
   }
 ```
@@ -132,8 +132,7 @@
 * **Data Params**  
 ```
   {
-    appointment_slot_id: string,
-    reason: string
+    appointment_slot_id: int
   }
 ```
 * **Success Response:**  
